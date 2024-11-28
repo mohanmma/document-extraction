@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Invoice",
+    "description": "A simple invoice format",
+    "type": "object",
+    "properties": {
+        "invoiceNumber": {
+            "type": "string",
+            "description": "Unique identifier for the invoice."
+        },
+        "invoiceDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the invoice was issued."
+        },
+        "sellerName": {
+            "type": "string",
+            "description": "Name of the seller."
+        },
+        "buyerName": {
+            "type": "string",
+            "description": "Name of the buyer."
+        },
+        "invoiceAmount": {
+            "type": "number",
+            "description": "Total amount of the invoice."
+        },
+        "emails": {
+            "type": "array",
+            "description": "List of email addresses associated with the invoice.",
+            "items": {
+                "type": "string",
+                "format": "email"
+            }
+        },
+        "phoneNumbers": {
+            "type": "array",
+            "description": "List of phone numbers associated with the invoice.",
+            "items": {
+                "type": "string",
+                "pattern": "^\\+?[1-9]\\d{1,14}$"
+            }
+        }
+    },
+    "required": ["invoiceNumber", "invoiceDate", "sellerName", "buyerName", "invoiceAmount"]
+}
